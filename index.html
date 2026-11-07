@@ -65,17 +65,17 @@ footer{margin-top:48px;color:var(--mute);font-size:.9rem}
 </header>
 
 <nav>
-  <a href="#start">Power on</a><a href="#controls">Controls</a><a href="#life">Dino's day</a><a href="#menu">Menu</a>
+  <a href="#start">Power on</a><a href="#controls">Controls</a><a href="#life">Dino's day</a><a href="#menu">Menu</a><a href="#wifi">Wi-Fi</a>
   <a href="#alarm">Alarm</a><a href="#focus">Focus</a><a href="#stopwatch">Stopwatch</a><a href="#serial">Serial keys</a><a href="#help">Help</a>
 </nav>
 
 <h2 id="start">1. Power on</h2>
 <ol class="steps">
   <li>Plug dino in with a USB-C data cable (or connect its battery). The face appears on the screen.</li>
-  <li>On start it joins your Wi-Fi once to get the time, then again about once a day. This is the only network use; there is no camera, microphone or cloud.</li>
+  <li>Connect dino to your Wi-Fi once (section 5) so it can show the time. After that it joins your Wi-Fi about once a day to ask for the time. That is its only network use; there is no camera, microphone or cloud.</li>
   <li>Leave it on its home screen: dino idles, blinks and has small quirks.</li>
 </ol>
-<div class="note warn"><b>No Wi-Fi, no time.</b> If the time was never synced the clock shows <kbd>--:--</kbd> and alarms will not ring. Dino still reacts to touch and motion. Setup steps are in the project README.</div>
+<div class="note warn"><b>No Wi-Fi, no time.</b> If the time was never synced the clock shows <kbd>--:--</kbd> and alarms will not ring. Dino still reacts to touch and motion. To connect it, open the menu and choose the Wi-Fi card (section 5).</div>
 
 <h2 id="controls">2. The five ways to talk to dino</h2>
 <p>Touch pad plus motion. The same gesture does different things depending on the screen.</p>
@@ -110,7 +110,7 @@ footer{margin-top:48px;color:var(--mute);font-size:.9rem}
 
 <h2 id="menu">4. The menu</h2>
 <div class="anims"><figure class="anim" data-clip="menu"><figcaption><b>The menu</b><span>Long press, tilt to move, tap to choose</span></figcaption></figure><figure class="anim" data-clip="clock"><figcaption><b>Clock mode</b><span>Time stays on the home screen</span></figcaption></figure><figure class="anim" data-clip="time"><figcaption><b>Time board</b><span>Double tap on the home screen</span></figcaption></figure></div>
-<p>Long press from the home screen. The menu has five cards. It closes by itself after 10 s without input.</p>
+<p>Long press from the home screen. The menu has six cards. It closes by itself after 10 s without input.</p>
 <ol class="steps">
   <li><b>Tilt</b> left or right to move to the next card.</li>
   <li><b>Tap</b> to choose the card.</li>
@@ -119,13 +119,31 @@ footer{margin-top:48px;color:var(--mute);font-size:.9rem}
 <div class="scroll"><table>
 <tr><th>Card</th><th>What it does</th></tr>
 <tr><td>Clock</td><td>Turns <i>clock mode</i> on or off. When on, the time stays on the home screen. The picture moves 1 px every 3 minutes to protect the OLED from burn-in.</td></tr>
-<tr><td>Alarm</td><td>Set the alarm (section 5)</td></tr>
-<tr><td>Focus</td><td>Start a focus session (section 6)</td></tr>
-<tr><td>Stopwatch</td><td>Open the stopwatch (section 7)</td></tr>
+<tr><td>Alarm</td><td>Set the alarm (section 6)</td></tr>
+<tr><td>Focus</td><td>Start a focus session (section 7)</td></tr>
+<tr><td>Stopwatch</td><td>Open the stopwatch (section 8)</td></tr>
+<tr><td>Wi-Fi</td><td>Connect dino to your Wi-Fi so it can show the time (section 5)</td></tr>
 <tr><td>Back</td><td>Return to the home screen</td></tr>
 </table></div>
 
-<h2 id="alarm">5. Alarm</h2>
+<h2 id="wifi">5. Connect dino to Wi-Fi</h2>
+<div class="anims"><figure class="anim" data-clip="wifi_menu"><figcaption><b>The Wi-Fi card</b><span>Menu, tilt to the Wi-Fi card, tap</span></figcaption></figure><figure class="anim" data-clip="wifi_pair"><figcaption><b>Looking for Wi-Fi</b><span>Dino waits for your phone</span></figcaption></figure><figure class="anim" data-clip="wifi_joined"><figcaption><b>Phone found</b><span>Your phone joined dino's network</span></figcaption></figure><figure class="anim" data-clip="wifi_connecting"><figcaption><b>Connecting</b><span>Dino tries your Wi-Fi</span></figcaption></figure><figure class="anim" data-clip="wifi_done"><figcaption><b>Connected</b><span>Dino shows the time</span></figcaption></figure><figure class="anim" data-clip="wifi_fail"><figcaption><b>Did not connect</b><span>Check the password and try again</span></figcaption></figure></div>
+<p>Dino needs the time once so the clock and alarm work. You give it your Wi-Fi from your phone. No app is needed. The network name and password in the pictures above are examples; yours are random and appear only on dino's screen.</p>
+<ol class="steps">
+  <li><b>Long press</b>, <b>tilt</b> to the Wi-Fi card and <b>tap</b>. The screen says <i>Connect your dino to show the time</i> and dino looks around for Wi-Fi.</li>
+  <li>On your phone, join the Wi-Fi network named <kbd>DINO-</kbd> followed by four characters. The password is the 10 letters and digits on dino's screen.</li>
+  <li>A page opens by itself. If it does not, open <kbd>http://192.168.4.1</kbd> in your browser.</li>
+  <li>Pick your home Wi-Fi (or type its name), enter its password and press <b>Connect</b>. It must be a 2.4 GHz network.</li>
+  <li>Dino shows it is connected, gets the time and goes home. Your phone returns to its usual Wi-Fi.</li>
+</ol>
+<ul>
+  <li><b>Long press</b> cancels. Dino also gives up after 5 minutes if nobody joins.</li>
+  <li>If the page stops responding, look at dino's screen: it always shows what is happening.</li>
+  <li>Dino keeps your Wi-Fi name and password in its memory (stored as plain text) and saves them only after a successful connection. The setup network exists only while the Wi-Fi card is open.</li>
+</ul>
+<div class="note warn"><b>Honest status:</b> Wi-Fi setup passes its desktop tests but has not yet been run on a real board. Expect rough edges until it has.</div>
+
+<h2 id="alarm">6. Alarm</h2>
 <div class="anims"><figure class="anim" data-clip="setalarm"><figcaption><b>Set the alarm</b><span>Tilt changes a value, tap moves on</span></figcaption></figure><figure class="anim" data-clip="alarm"><figcaption><b>Ringing</b><span>Three stages, each louder</span></figcaption></figure><figure class="anim" data-clip="snooze"><figcaption><b>Snooze</b><span>Tap while ringing</span></figcaption></figure><figure class="anim" data-clip="dismiss"><figcaption><b>Dismiss</b><span>Hold or flip face-down</span></figcaption></figure></div>
 <h3>Set it</h3>
 <ol class="steps">
@@ -149,7 +167,7 @@ footer{margin-top:48px;color:var(--mute);font-size:.9rem}
 </table></div>
 <div class="note">Alarms follow the real clock. They never wait for an animation to finish.</div>
 
-<h2 id="focus">6. Focus session</h2>
+<h2 id="focus">7. Focus session</h2>
 <div class="anims"><figure class="anim" data-clip="focuspick"><figcaption><b>Pick a length</b><span>Tilt to choose 25 / 45 / 60</span></figcaption></figure><figure class="anim" data-clip="focus"><figcaption><b>Working</b><span>Minutes count down</span></figcaption></figure><figure class="anim" data-clip="focusdone"><figcaption><b>Done</b><span>The countdown reaches zero</span></figcaption></figure><figure class="anim" data-clip="break"><figcaption><b>Breathing break</b><span>Breathe in time with dino</span></figcaption></figure></div>
 <ol class="steps">
   <li>Long press, tilt to <b>Focus</b>, tap.</li>
@@ -162,7 +180,7 @@ footer{margin-top:48px;color:var(--mute);font-size:.9rem}
   <li><b>Tap</b> or <b>long press</b> during the break skips it.</li>
 </ul>
 
-<h2 id="stopwatch">7. Stopwatch</h2>
+<h2 id="stopwatch">8. Stopwatch</h2>
 <div class="anims"><figure class="anim" data-clip="stopwatch"><figcaption><b>Stopwatch</b><span>Tap to pause or resume</span></figcaption></figure></div>
 <ul>
   <li>Menu, <b>Stopwatch</b>, tap. It shows <kbd>MM:SS</kbd>.</li>
@@ -170,7 +188,7 @@ footer{margin-top:48px;color:var(--mute);font-size:.9rem}
   <li><b>Long press</b> leaves the stopwatch.</li>
 </ul>
 
-<h2 id="serial">8. No touch pad? Use the keyboard</h2>
+<h2 id="serial">9. No touch pad? Use the keyboard</h2>
 <p>With dino connected by USB and a serial monitor open at 115200 baud, type these keys to stand in for gestures:</p>
 <div class="scroll"><table>
 <tr><th>Key</th><th>Does</th><th>Key</th><th>Does</th></tr>
@@ -179,12 +197,18 @@ footer{margin-top:48px;color:var(--mute);font-size:.9rem}
 <tr><td><kbd>l</kbd></td><td>long press</td><td><kbd>a</kbd></td><td>test alarm at the next minute</td></tr>
 <tr><td><kbd>h</kbd></td><td>hold</td><td><kbd>i</kbd></td><td>info: state, alarm, memory, time, IMU, battery</td></tr>
 <tr><td><kbd>?</kbd></td><td>list every key</td><td><kbd>m</kbd></td><td>mute or unmute the buzzer</td></tr>
+<tr><td><kbd>s</kbd></td><td>sync the time now</td><td><kbd>b</kbd></td><td>show the battery now</td></tr>
+<tr><td><kbd>n</kbd></td><td>RAWR now</td><td><kbd>v</kbd></td><td>play each life animation in turn</td></tr>
+<tr><td><kbd>z</kbd></td><td>fall asleep now (test)</td><td><kbd>p</kbd></td><td>play the next sound</td></tr>
+<tr><td><kbd>r</kbd></td><td>buzzer pitch sweep</td><td></td><td></td></tr>
 </table></div>
 
-<h2 id="help">9. If something looks wrong</h2>
+<h2 id="help">10. If something looks wrong</h2>
 <div class="scroll"><table>
 <tr><th>Symptom</th><th>What to try</th></tr>
-<tr><td>Clock shows <kbd>--:--</kbd></td><td>The time has not synced. Check the Wi-Fi name and password in the firmware setup, that the network is 2.4 GHz, and restart dino</td></tr>
+<tr><td>Clock shows <kbd>--:--</kbd></td><td>The time has not synced. Use menu, Wi-Fi to connect dino, and check the network is 2.4 GHz. Dino retries by itself; the <kbd>s</kbd> key tries now</td></tr>
+<tr><td>Phone cannot see the <kbd>DINO-</kbd> network, or the page does not open</td><td>Stay close, make sure the Wi-Fi card is still showing on dino, enter the 10-character password exactly as shown, then open <kbd>http://192.168.4.1</kbd></td></tr>
+<tr><td>Dino says it did not connect</td><td>Wrong password, or a 5 GHz network. Try again on the 2.4 GHz network</td></tr>
 <tr><td>Time is off by hours</td><td>The time zone setting in the firmware is wrong</td></tr>
 <tr><td>Tilt moves the wrong way or too easily</td><td>The motion sensor needs calibrating for this unit (see the IMU calibration guide)</td></tr>
 <tr><td>Menu closed on its own</td><td>It goes home after 10 s without input</td></tr>
@@ -193,7 +217,7 @@ footer{margin-top:48px;color:var(--mute);font-size:.9rem}
 </table></div>
 
 <footer>
-  <p>Matches the firmware at checkpoint D4. Not yet in this version: games, friends, settings screen, a firm double tap for RAWR. Build and flash instructions are in the project README.</p>
+  <p>Matches the firmware at checkpoint D4 plus Wi-Fi setup (not yet run on a board). Not yet in this version: games, friends, settings screen, a firm double tap for RAWR. Build and flash instructions are in the <a href="https://github.com/thelabzero/pixling_dino_firmware">project README</a>.</p>
 </footer>
 </div>
 <script src="guide-anims.js"></script>
